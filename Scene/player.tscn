@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://daw3piknht08v"]
+
+[ext_resource type="Texture2D" uid="uid://byrwy4qqowl2b" path="res://Assets/delivery spritesheet.png" id="1_klfgu"]
+[ext_resource type="Script" path="res://Script/player.gd" id="1_wiobj"]
+[ext_resource type="AudioStream" uid="uid://f18qgeb3do8e" path="res://Assets/Audio/feet_10.wav" id="3_gkqn2"]
+[ext_resource type="AudioStream" uid="uid://bh1uhpudtjhg" path="res://Assets/Audio/Jump.wav" id="4_qlv4j"]
+[ext_resource type="AudioStream" uid="uid://b8u1j7wskjmij" path="res://Assets/Audio/Explosion.wav" id="5_ldofh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr5g5"]
+atlas = ExtResource("1_klfgu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3jqn"]
+atlas = ExtResource("1_klfgu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5q4d"]
+atlas = ExtResource("1_klfgu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3xcn"]
+atlas = ExtResource("1_klfgu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_scitu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr5g5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3jqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5q4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3xcn")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0kbqx"]
+radius = 5.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -8)
+script = ExtResource("1_wiobj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_scitu")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.285936
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_0kbqx")
+
+[node name="PackageOffset" type="Marker2D" parent="."]
+position = Vector2(-7, 8)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gkqn2")
+volume_db = 5.0
+bus = &"Player SFX"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qlv4j")
+bus = &"Player SFX"
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ldofh")
+bus = &"Player SFX"

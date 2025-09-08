@@ -1,0 +1,190 @@
+[gd_scene load_steps=15 format=3 uid="uid://bhxlesgbfsbya"]
+
+[ext_resource type="Script" path="res://Script/dash_bar.gd" id="1_3w6wt"]
+[ext_resource type="Script" path="res://Script/ScoreLabel.gd" id="2_fcesl"]
+[ext_resource type="Texture2D" uid="uid://byrwy4qqowl2b" path="res://Assets/delivery spritesheet.png" id="3_lmlfl"]
+[ext_resource type="FontFile" uid="uid://dt853gjrdc4t2" path="res://Assets/Kenney Mini.ttf" id="3_owhks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6dgy"]
+atlas = ExtResource("3_lmlfl")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ey0w"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntowl"]
+bg_color = Color(0.89414, 0.857264, 0.293721, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_k327g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6bdnu"]
+font = ExtResource("3_owhks")
+font_size = 51
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cow5h"]
+atlas = ExtResource("3_lmlfl")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njdkb"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xbth"]
+bg_color = Color(0, 0.885951, 0.749622, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aef7r"]
+atlas = ExtResource("3_lmlfl")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ela5b"]
+atlas = ExtResource("3_lmlfl")
+region = Rect2(16, 16, 16, 16)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DashIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -7.0
+offset_right = 2.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+texture = SubResource("AtlasTexture_v6dgy")
+
+[node name="DashBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -7.0
+offset_right = 194.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+theme_override_styles/background = SubResource("StyleBoxFlat_0ey0w")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ntowl")
+value = 62.78
+show_percentage = false
+script = ExtResource("1_3w6wt")
+
+[node name="Label" type="Label" parent="DashBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -11.5
+offset_right = 22.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "DASH"
+label_settings = SubResource("LabelSettings_k327g")
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 2.0
+offset_right = 1520.0
+offset_bottom = 72.0
+grow_horizontal = 2
+scale = Vector2(0.1, 0.1)
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_6bdnu")
+horizontal_alignment = 1
+vertical_alignment = 3
+script = ExtResource("2_fcesl")
+
+[node name="Marker" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = 4.0
+offset_right = 29.0
+offset_bottom = 44.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+texture = SubResource("AtlasTexture_cow5h")
+
+[node name="TimerBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -24.0
+offset_right = 36.0
+offset_bottom = 436.0
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+theme_override_styles/background = SubResource("StyleBoxFlat_njdkb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3xbth")
+value = 69.6
+fill_mode = 3
+show_percentage = false
+
+[node name="TimeIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -29.0
+offset_right = 22.0
+offset_bottom = -13.0
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+texture = SubResource("AtlasTexture_aef7r")
+
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 20.0
+offset_bottom = 19.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_ela5b")

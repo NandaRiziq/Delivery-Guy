@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqaflwf436xpk"]
+
+[ext_resource type="FontFile" uid="uid://dt853gjrdc4t2" path="res://Assets/Kenney Mini.ttf" id="1_kl2t1"]
+[ext_resource type="Script" path="res://Script/game_over.gd" id="2_j0c6x"]
+[ext_resource type="AudioStream" uid="uid://qjjm2j2ofyce" path="res://Assets/Audio/Powerdown.wav" id="3_jhos7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2mpxu"]
+font = ExtResource("1_kl2t1")
+font_size = 116
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtv1t"]
+font = ExtResource("1_kl2t1")
+font_size = 71
+font_color = Color(0.925049, 0.568911, 1.15514e-06, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tinqr"]
+font = ExtResource("1_kl2t1")
+font_size = 26
+font_color = Color(0, 0.763972, 0.449281, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_j0c6x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.701961)
+
+[node name="GameOverLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -24.0
+offset_right = 609.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+text = "Game Over"
+label_settings = SubResource("LabelSettings_2mpxu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -9.0
+offset_right = 1522.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+text = "Score: 000"
+label_settings = SubResource("LabelSettings_vtv1t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestScore" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -1.0
+offset_right = 369.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+text = "New Best Score!"
+label_settings = SubResource("LabelSettings_tinqr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -32.0
+offset_right = 246.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("1_kl2t1")
+theme_override_font_sizes/font_size = 36
+text = "Retry"
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -23.0
+offset_right = 246.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("1_kl2t1")
+theme_override_font_sizes/font_size = 36
+text = "Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jhos7")
+autoplay = true

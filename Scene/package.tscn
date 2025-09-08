@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dak5rtbatms5r"]
+
+[ext_resource type="Script" path="res://Script/package.gd" id="1_7jccj"]
+[ext_resource type="Texture2D" uid="uid://byrwy4qqowl2b" path="res://Assets/delivery spritesheet.png" id="1_ya28q"]
+
+[node name="Package" type="Node2D"]
+script = ExtResource("1_7jccj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_ya28q")
+region_enabled = true
+region_rect = Rect2(112, 16, 16, 16)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -17.0
+offset_right = 38.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+text = "id: 0"
+horizontal_alignment = 1

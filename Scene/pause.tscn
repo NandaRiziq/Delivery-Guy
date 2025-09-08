@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwukaiut2g2nv"]
+
+[ext_resource type="FontFile" uid="uid://dt853gjrdc4t2" path="res://Assets/Kenney Mini.ttf" id="1_ak6it"]
+[ext_resource type="Script" path="res://Script/pause.gd" id="2_s0lgc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ju72d"]
+font = ExtResource("1_ak6it")
+font_size = 116
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_s0lgc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.701961)
+
+[node name="PauseLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -17.0
+offset_right = 609.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+text = "Paused"
+label_settings = SubResource("LabelSettings_ju72d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -44.0
+offset_right = 246.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("1_ak6it")
+theme_override_font_sizes/font_size = 36
+text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -35.0
+offset_right = 246.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("1_ak6it")
+theme_override_font_sizes/font_size = 36
+text = "Main Menu"
